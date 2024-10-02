@@ -28,4 +28,6 @@ $(document).ready(function () {
   $(document).on("click", "#delete-yellow", function () {
     $("#page-title").removeClass("yellow");
   });
+
+  $("table");
 });
