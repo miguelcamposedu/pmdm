@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablas</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h1 class="text-center">Generador de tablas</h1>
+
+      <div class="row">
+        <div class="col-12">
+          <label for="check-firstname" class="form-check-label"
+            >First name</label
+          >
+          <input
+            type="checkbox"
+            class="form-check-input showHideColumn"
+            id="check-firstname"
+            checked="checked"
+            columnid="1"
+          />
+          &nbsp;
+          <label for="check-lastname" class="form-check-label">Last name</label>
+          <input
+            type="checkbox"
+            class="form-check-input showHideColumn"
+            id="check-lastname"
+            checked="checked"
+            columnid="2"
+          />
+          &nbsp;
+          <label for="check-email" class="form-check-label">Email</label>
+          <input
+            type="checkbox"
+            class="form-check-input showHideColumn"
+            id="check-email"
+            checked="checked"
+            columnid="3"
+          />
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead class="text-center">
+          <tr>
+            <th class="cell-col-1">
+              Firstname
+              <button class="btn btn-danger btn-del-col" columnid="1">X</button>
+            </th>
+            <th class="cell-col-2">
+              Lastname
+              <button class="btn btn-danger btn-del-col" columnid="2">X</button>
+            </th>
+            <th class="cell-col-3">
+              Email
+              <button class="btn btn-danger btn-del-col" columnid="3">X</button>
+            </th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr>
+            <td class="cell-col-1">John</td>
+            <td class="cell-col-2">Doe</td>
+            <td class="cell-col-3">john@example.com</td>
+            <td>
+              <button class="btn btn-danger btn-del-fila" itemid="1">
+                Borrar fila
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td class="cell-col-1">Mary</td>
+            <td class="cell-col-2">Moe</td>
+            <td class="cell-col-3">mary@example.com</td>
+            <td>
+              <button class="btn btn-danger btn-del-fila" itemid="2">
+                Borrar fila
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td class="cell-col-1">July</td>
+            <td class="cell-col-2">Dooley</td>
+            <td class="cell-col-3">july@example.com</td>
+            <td>
+              <button class="btn btn-danger btn-del-fila" itemid="3">
+                Borrar fila
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-center">
+      <button class="btn-add-fila btn btn-primary">Agregar fila</button>
+    </div>
+
+    <div class="text-center mt-3">
+      <button class="btn-add-col btn btn-primary">Agregar columna</button>
+    </div>
+
+    <div class="text-center mt-3">
+      <button id="btn-del-col" class="btn btn-danger">Borrar columna</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
