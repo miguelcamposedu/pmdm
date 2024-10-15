@@ -1,0 +1,23 @@
+<!-- 1. Property binding (interpolation): print value in a content place.
+ We use the moustache syntax to show the variable value. -->
+<p>{{ valoracion }}</p>
+
+<!-- Property binding: it's possible to apply the 
+ variable value inside an element attribute -->
+<img [src]="imgUrl" />
+
+<!-- 2. Event binding: la comunicación se realiza en 
+ el sentido contrario al property binding. Es decir,
+ ahora la información viaja desde el HTML al TS, y
+ para hacer dicha comunicación se utilizan eventos
+ activados por el usuario. Utilizamos los paréntesis
+ para este data binding. -->
+
+<button (click)="showUserInfo()">Show user info</button>
+
+<!-- 3. Two way data binding: se utiliza la sintaxis 
+ 'banana in a box' >>> [()] -->
+<br />
+<input [(ngModel)]="nombre" />
+
+Valor de la variable: {{ nombre }}

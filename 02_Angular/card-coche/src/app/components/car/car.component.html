@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card mt-5 card-car">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <div class="row">
+            <!-- Title -->
+            <div class="col-12">
+              <h5 class="card-title">{{ name }}</h5>
+            </div>
+            <!-- Subtitle -->
+            <div class="col-12">
+              <p class="car-subtitle">
+                {{ automatic == true ? "Automatic" : "" }}
+                {{ automatic == true && manual == true ? " / " : "" }}
+                {{ manual == true ? "Manual" : "" }}
+              </p>
+            </div>
+            <!-- Price -->
+            <div class="col-12 car-price">
+              <span class="badge text-bg-secondary">${{ price }}/day</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <img class="car-photo" [src]="imgSrc" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

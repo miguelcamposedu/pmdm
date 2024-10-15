@@ -1,0 +1,21 @@
+.card-car {
+  width: 400px;
+  height: 150px;
+}
+
+.car-subtitle {
+  font-size: 10px;
+  color: #bbb;
+  margin-top: -8px;
+}
+
+.car-photo {
+  position: absolute;
+  right: -10px;
+  width: 200px;
+}
+
+.car-price {
+  position: absolute;
+  bottom: 20px;
+}
