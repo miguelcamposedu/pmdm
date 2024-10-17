@@ -1,3 +1,26 @@
-<input type="number" [(ngModel)]="valorProgreso" /><br />
-
-<app-custom-progress-bar [value]="valorProgreso"></app-custom-progress-bar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <input
+        type="number"
+        max="100"
+        min="0"
+        [(ngModel)]="valorProgreso"
+      /><br />
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-12">
+      <app-custom-progress-bar
+        [value]="valorProgreso"
+      ></app-custom-progress-bar>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-custom-progress-bar-two
+        [progreso]="valorProgreso"
+      ></app-custom-progress-bar-two>
+    </div>
+  </div>
+</div>
