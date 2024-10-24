@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-12">
+    @for(item of listadoPeople; track item.url) {
+    <app-people-item [personId]="getPersonId(item.url)"></app-people-item>
+    }
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem">
+  <img
+    [src]="getPeopleUrlImage(person!.url)"
+    class="card-img-top"
+    [alt]="person!.name"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ person!.name }}</h5>
+    <p class="card-text">{{ person!.hair_color }}</p>
+    <a
+      [routerLink]="['/people-detail', getPersonId(person!.url)]"
+      class="btn btn-primary"
+      >View detail</a
+    >
+  </div>
+</div>
