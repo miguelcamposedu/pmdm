@@ -1,9 +1,16 @@
 <div class="card" style="width: 18rem">
+  @if(showAnimation) {
+  <ng-lottie [options]="options"></ng-lottie>
+  <audio autoplay>
+    <source src="/assets/medium_explosion.mp3" type="audio/mpeg" />
+  </audio>
+  } @else{
   <img
     [src]="pokemon?.sprites?.front_default"
     class="card-img-top"
     [alt]="pokemon?.name"
   />
+  }
   <div class="card-body">
     <h5 class="card-title">{{ pokemon?.name }}</h5>
     <p class="card-text">
@@ -18,6 +25,12 @@
         ><i>{{ life }}%</i></ngb-progressbar
       >
     </p>
+    @if(isMyTurn == true){
     <button (click)="doAttack()" class="btn btn-primary">Attack</button>
+    } @else {
+    <button disabled="disabled" class="btn btn-primary">
+      Waiting attack..
+    </button>
+    }
   </div>
 </div>

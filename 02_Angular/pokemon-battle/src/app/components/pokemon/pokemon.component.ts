@@ -1,6 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonResponse } from '../../models/pokemon-response.interface';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-pokemon',
@@ -8,10 +16,16 @@ import { PokemonResponse } from '../../models/pokemon-response.interface';
   styleUrl: './pokemon.component.css',
 })
 export class PokemonComponent implements OnInit {
+  options: AnimationOptions = {
+    path: '/assets/animation_explosion.json',
+  };
+
   @Input() pokemonId: number | undefined;
   pokemon: PokemonResponse | undefined;
-  life: number = 100;
+  @Input() life: number = 100;
   @Output() onAttackDone = new EventEmitter<number>();
+  @Input() isMyTurn: boolean = false;
+  showAnimation: boolean = false;
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -21,6 +35,17 @@ export class PokemonComponent implements OnInit {
       .subscribe((pokemonResponse) => {
         this.pokemon = pokemonResponse;
       });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['life']) {
+      if (changes['life'].firstChange == false) {
+        this.showAnimation = true;
+        setTimeout(() => {
+          this.showAnimation = false;
+        }, 1000);
+      }
+    }
   }
 
   getProgressBarColor(): string {
