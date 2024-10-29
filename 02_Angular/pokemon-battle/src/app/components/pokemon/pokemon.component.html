@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem">
+  <img
+    [src]="pokemon?.sprites?.front_default"
+    class="card-img-top"
+    [alt]="pokemon?.name"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ pokemon?.name }}</h5>
+    <p class="card-text">
+      <strong>Height:</strong> {{ pokemon?.height }} <br />
+      <strong>Weight:</strong> {{ pokemon?.weight }} <br />
+      <ngb-progressbar
+        class="mb-3"
+        [type]="getProgressBarColor()"
+        [value]="life"
+        [striped]="true"
+        [animated]="true"
+        ><i>{{ life }}%</i></ngb-progressbar
+      >
+    </p>
+    <button (click)="doAttack()" class="btn btn-primary">Attack</button>
+  </div>
+</div>
