@@ -1,0 +1,18 @@
+<h1>Sin pipe: {{ titulo }}</h1>
+<h1>Pipe lowercase: {{ titulo | lowercase }}</h1>
+<h1>Pipe title: {{ titulo | titlecase }}</h1>
+<h1>Pipe uppercase: {{ titulo | uppercase }}</h1>
+
+<hr />
+
+<h1>Pipe currency standard: {{ precio | currency : "EUR" : "Eur" }}</h1>
+
+<hr />
+
+<h1>Date pipe: {{ createdAt | date : "shortDate" }}</h1>
+
+<hr />
+
+<h1>{{ porcentajeDeVida | percent }}</h1>
+
+<h1>{{ customEurValue }}</h1>
