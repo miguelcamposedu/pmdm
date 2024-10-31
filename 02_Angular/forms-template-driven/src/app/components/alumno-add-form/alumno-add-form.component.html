@@ -1,0 +1,86 @@
+<div class="container-fluid" style="width: 400px">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Add new student</h1>
+    </div>
+  </div>
+  <div [hidden]="submitted">
+    <form
+      action=""
+      method="post"
+      (ngSubmit)="addStudent()"
+      #studentForm="ngForm"
+    >
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label for="name" class="form-label">Name *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+            [(ngModel)]="student.name"
+          />
+        </div>
+        <div class="col-12 mb-3">
+          <label for="course" class="form-label">Course *</label>
+
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="course"
+            id="course"
+            required
+            [(ngModel)]="student.course"
+          >
+            <option value="" selected="selected">-Select one-</option>
+            @for(course of courseList; track course){
+            <option [value]="course">{{ course }}</option>
+            }
+          </select>
+        </div>
+        <div class="col-6 mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            name="age"
+            [(ngModel)]="student.age"
+          />
+        </div>
+        <div class="col-6 mb-3">
+          <label for="phone" class="form-label">Phone number *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            placeholder="Phone number"
+            required
+            [(ngModel)]="student.phone"
+          />
+        </div>
+        <div class="col-12">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="width: 100%"
+            [disabled]="!studentForm.form.valid"
+          >
+            Create student
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row" [hidden]="!submitted">
+    <div class="col-12">
+      <div class="alert alert-success d-flex align-items-center" role="alert">
+        <div>Formulario enviado</div>
+      </div>
+    </div>
+  </div>
+</div>
