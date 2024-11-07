@@ -48,7 +48,9 @@ export class GasListComponent implements OnInit {
         gasolineraChusquera['Rótulo'],
         gasolineraChusquera['Precio Gasolina 95 E5'],
         gasolineraChusquera['Precio Gasoleo A'],
-        gasolineraChusquera['C.P.']
+        gasolineraChusquera['C.P.'],
+        gasolineraChusquera['Latitud'],
+        gasolineraChusquera['Longitud (WGS84)']
       );
 
       newArray.push(gasolinera);
