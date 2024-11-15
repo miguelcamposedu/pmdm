@@ -9,8 +9,9 @@ export class GasService {
   constructor(private http: HttpClient) {}
 
   getGasList() {
-    return this.http.get(
+    /*return this.http.get(
       'https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/'
-    );
+    );*/
+    return this.http.get('http://localhost:3000/gasolineras');
   }
 }
