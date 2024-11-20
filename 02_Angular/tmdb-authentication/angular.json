@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "popcorn-app": {
+    "tmdb-authentication": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/popcorn-app",
+            "outputPath": "dist/tmdb-authentication",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "popcorn-app:build:production"
+              "buildTarget": "tmdb-authentication:build:production"
             },
             "development": {
-              "buildTarget": "popcorn-app:build:development"
+              "buildTarget": "tmdb-authentication:build:development"
             }
           },
           "defaultConfiguration": "development"
