@@ -11,7 +11,7 @@ export class HomeComponent {
 
   createRequestToken() {
     this.authService.createRequestToken().subscribe((response) => {
-      console.log(response);
+      localStorage.setItem('token', response.request_token);
     });
   }
 }
