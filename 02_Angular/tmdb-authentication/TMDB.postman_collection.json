@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "b5c64c4a-97c0-4aa5-8f50-89b690f01717",
+		"name": "TMDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23786567"
+	},
+	"item": [
+		{
+			"name": "MOVIE LIST",
+			"item": [
+				{
+					"name": "Popular",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}/movie/popular",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"movie",
+								"popular"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MOVIES",
+			"item": [
+				{
+					"name": "Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}/movie/125988",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"movie",
+								"125988"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TV",
+			"item": [
+				{
+					"name": "Details",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DISCOVER",
+			"item": [
+				{
+					"name": "TV",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}/discover/tv?air_date.gte=2024-11-18&vote_count.gte=100&vote_average.gte=8.7",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"discover",
+								"tv"
+							],
+							"query": [
+								{
+									"key": "air_date.gte",
+									"value": "2024-11-18"
+								},
+								{
+									"key": "vote_count.gte",
+									"value": "100"
+								},
+								{
+									"key": "vote_average.gte",
+									"value": "8.7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "1. Create Request Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let jsonData = pm.response.json();",
+									"pm.environment.set(\"REQUEST_TOKEN\", jsonData.request_token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}/authentication/token/new",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"authentication",
+								"token",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Authenticate",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.themoviedb.org/authenticate/{{REQUEST_TOKEN}}",
+							"protocol": "https",
+							"host": [
+								"www",
+								"themoviedb",
+								"org"
+							],
+							"path": [
+								"authenticate",
+								"{{REQUEST_TOKEN}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Create Session ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let jsonData = pm.response.json();",
+									"pm.environment.set(\"SESSION_ID\", jsonData.session_id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"request_token\": \"{{REQUEST_TOKEN}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}/authentication/session/new",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"authentication",
+								"session",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACCOUNT",
+			"item": [
+				{
+					"name": "Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}/account?session_id={{SESSION_ID}}",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"account"
+							],
+							"query": [
+								{
+									"key": "session_id",
+									"value": "{{SESSION_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{API_KEY}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "request_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

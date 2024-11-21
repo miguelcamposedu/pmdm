@@ -1,9 +1,16 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
+      @if(isLoggedIn()) {
+      <img [src]="userPhoto" alt="Avatar" class="avatar" />{{ userName }}
+      <button class="btn btn-danger btn-sm" (click)="logout()">
+        Cerrar sesión
+      </button>
+      }@else {
       <button class="btn btn-primary btn-sm" (click)="createRequestToken()">
         Iniciar sesión en TMDB
       </button>
+      }
     </div>
   </div>
 </div>
