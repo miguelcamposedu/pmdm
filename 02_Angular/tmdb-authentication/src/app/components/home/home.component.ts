@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { MoviesService } from '../../services/movies.service';
+import { Movie } from '../../models/interfaces/movies-popular.interface';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,12 @@ import { AuthService } from '../../services/auth.service';
 export class HomeComponent implements OnInit {
   userName = '';
   userPhoto = '';
-  constructor(private authService: AuthService) {}
+  listMovies: Movie[] = [];
+
+  constructor(
+    private authService: AuthService,
+    private moviesService: MoviesService
+  ) {}
 
   ngOnInit(): void {
     this.userName = localStorage.getItem('user_name') ?? '';
@@ -18,6 +25,10 @@ export class HomeComponent implements OnInit {
           'user_photo'
         )}`
       : '';
+
+    this.moviesService.getPopularMovies().subscribe((response) => {
+      this.listMovies = response.results;
+    });
   }
 
   createRequestToken() {

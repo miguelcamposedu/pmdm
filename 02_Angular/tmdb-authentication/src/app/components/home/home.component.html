@@ -13,4 +13,11 @@
       }
     </div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      @for(movie of listMovies; track movie.id) {
+      {{ movie.original_title }}
+      }
+    </div>
+  </div>
 </div>
