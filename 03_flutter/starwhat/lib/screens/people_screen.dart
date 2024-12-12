@@ -34,7 +34,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
           }
 
           // By default, show a loading spinner.
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );

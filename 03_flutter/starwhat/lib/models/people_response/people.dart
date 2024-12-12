@@ -10,10 +10,10 @@ class People {
   String? birthYear;
   String? gender;
   String? homeworld;
-  List<String>? films;
+  List<dynamic>? films;
   List<dynamic>? species;
-  List<String>? vehicles;
-  List<String>? starships;
+  List<dynamic>? vehicles;
+  List<dynamic>? starships;
   DateTime? created;
   DateTime? edited;
   String? url;
@@ -47,10 +47,18 @@ class People {
         birthYear: data['birth_year'] as String?,
         gender: data['gender'] as String?,
         homeworld: data['homeworld'] as String?,
-        films: data['films'] as List<String>?,
-        species: data['species'] as List<dynamic>?,
-        vehicles: data['vehicles'] as List<String>?,
-        starships: data['starships'] as List<String>?,
+        films: (data['films'] as List<dynamic>?)
+            ?.map((item) => item as String)
+            .toList(),
+        species: (data['species'] as List<dynamic>?)
+            ?.map((item) => item as String)
+            .toList(),
+        vehicles: (data['vehicles'] as List<dynamic>?)
+            ?.map((item) => item as String)
+            .toList(),
+        starships: (data['starships'] as List<dynamic>?)
+            ?.map((item) => item as String)
+            .toList(),
         created: data['created'] == null
             ? null
             : DateTime.parse(data['created'] as String),
