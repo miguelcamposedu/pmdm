@@ -13,7 +13,6 @@ $(document).ready(function () {
     } else if (action == "") {
       alert("debe seleccionar una acción");
     } else {
-      debugger;
       if ($("#checkPolite").prop("checked") == true) {
         input = cleanPalabrotas(input);
       }
@@ -40,7 +39,9 @@ $(document).ready(function () {
   function cleanPalabrotas(str) {
     var strSinPalabrotas = str;
     palabrotas.forEach(function (palabrota) {
-      strSinPalabrotas = strSinPalabrotas.replace(palabrota, "***");
+      console.log(palabrota);
+      var expresionRegular = new RegExp(palabrota, "gi");
+      strSinPalabrotas = strSinPalabrotas.replace(expresionRegular, "***");
     });
     return strSinPalabrotas;
   }
