@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  var palabrotas = ["cabrito", "hijo de tu madre", "pesao"];
+
   $(document).on("click", "#btnAction", function () {
     // Entrada
     var input = $("#textInput").val();
@@ -10,10 +12,17 @@ $(document).ready(function () {
       alert("debe introducir un texto de entrada");
     } else if (action == "") {
       alert("debe seleccionar una acción");
-    } else if (action == "upper") {
-      output = toUpperCase(input);
-    } else if (action == "lower") {
-      output = toLowerCase(input);
+    } else {
+      debugger;
+      if ($("#checkPolite").prop("checked") == true) {
+        input = cleanPalabrotas(input);
+      }
+
+      if (action == "upper") {
+        output = toUpperCase(input);
+      } else if (action == "lower") {
+        output = toLowerCase(input);
+      }
     }
 
     // Salida
@@ -26,5 +35,9 @@ $(document).ready(function () {
 
   function toLowerCase(str) {
     return str.toLowerCase();
+  }
+
+  function cleanPalabrotas(str) {
+    return str;
   }
 });
