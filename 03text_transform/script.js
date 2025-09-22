@@ -38,6 +38,10 @@ $(document).ready(function () {
   }
 
   function cleanPalabrotas(str) {
-    return str;
+    var strSinPalabrotas = str;
+    palabrotas.forEach(function (palabrota) {
+      strSinPalabrotas = strSinPalabrotas.replace(palabrota, "***");
+    });
+    return strSinPalabrotas;
   }
 });
