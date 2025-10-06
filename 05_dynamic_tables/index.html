@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic tables</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row mb-1 mt-2">
+        <div class="col-12">
+          <button class="btn btn-primary btn-xs" id="btn-add-row">
+            <i class="bi bi-plus-circle"></i> Add row
+          </button>
+        </div>
+      </div>
+      <div class="row mb-1 mt-2">
+        <div class="col-12">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                <th scope="col" style="width: 500px">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="table-tbody">
+              <tr>
+                <th scope="row">1</th>
+                <td>Miguel</td>
+                <td>Campos</td>
+                <td>@mdo</td>
+                <td>
+                  <button class="btn btn-danger btn-xs btn-delete-row">
+                    <i class="bi bi-trash"></i> Delete row
+                  </button>
+                  <button class="btn btn-success btn-xs btn-add-row-above">
+                    <i class="bi bi-arrow-bar-up"></i>
+                    Add row above
+                  </button>
+                  <button class="btn btn-success btn-xs btn-add-row-below">
+                    <i class="bi bi-arrow-bar-down"></i>
+                    Add row below
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
