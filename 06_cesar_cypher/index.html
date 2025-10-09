@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic tables</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row mb-1 mt-2">
+        <div class="col-md-6 col-12">
+          <div class="card">
+            <h5 class="card-header">
+              <div class="card-title">Source text</div>
+              <div class="card-tools">
+                <button class="btn btn-warning btn-tool" id="btn-cypher">
+                  <i class="bi bi-braces-asterisk"></i> Cypher
+                </button>
+              </div>
+            </h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3 col-12">
+                  <label for="inputMovement" class="form-label">Movement</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="inputMovement"
+                    value="3"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="sourceTextArea" class="form-label">Text</label>
+                  <textarea
+                    class="form-control"
+                    id="sourceTextArea"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="card">
+            <h5 class="card-header">
+              <div class="card-title">Cypher text</div>
+              <div class="card-tools">
+                <button class="btn btn-warning btn-tool" id="btn-descypher">
+                  <i class="bi bi-braces"></i> Descypher
+                </button>
+              </div>
+            </h5>
+            <div class="card-body">
+              <label for="cypherTextArea" class="form-label">Text</label>
+              <textarea
+                class="form-control"
+                id="cypherTextArea"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script_1.js"></script>
+  </body>
+</html>
