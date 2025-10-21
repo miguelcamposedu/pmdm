@@ -1,0 +1,17 @@
+<!-- template literal: one way data binding (Component > View, TS > HTML) -->
+<p>{{ title }}</p>
+<p>{{ edad }}</p>
+<p>{{ getImageURL('venusaur') }}</p>
+<p>{{ getImageURL('pikachu') }}</p>
+
+<!-- property binding: one way data binding (component > view) -->
+<p>
+  <img [src]="getImageURL('venusaur')" width="200px" />
+  <img [src]="getImageURL('pikachu')" width="200px" />
+  <input type="email" [value]="email" />
+</p>
+<p [class]="isMenorEdad()">{{ edad < 18 ? 'Menor edad' : 'Mayor edad' }}</p>
+
+<!-- event binding: one way data binding (View > component)-->
+
+<p (click)="abrirAlert()">Hacer click aquí</p>
