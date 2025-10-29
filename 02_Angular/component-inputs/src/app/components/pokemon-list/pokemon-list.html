@@ -1,0 +1,5 @@
+<p>Listado pokemons</p>
+
+@for(pokemon of pokemons; track pokemon.name) {
+<app-pokemon [nombrePokemon]="pokemon.name" [tipoPokemon]="pokemon.type"></app-pokemon>
+}
