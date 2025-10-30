@@ -1,0 +1,15 @@
+Total productos: {{ qtyTotal }}
+
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      @for(p of productos; track p.name) {
+      <app-product
+        [producto]="p"
+        (onDecClicked)="decrementarTotal()"
+        (onIncClicked)="incrementarTotal()"
+      ></app-product>
+      }
+    </div>
+  </div>
+</div>

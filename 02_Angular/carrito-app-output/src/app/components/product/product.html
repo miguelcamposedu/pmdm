@@ -1,0 +1,40 @@
+<div class="col">
+  <div class="card shadow-sm">
+    <img
+      aria-label="Placeholder: Thumbnail"
+      class="bd-placeholder-img card-img-top"
+      height="225"
+      preserveAspectRatio="xMidYMid slice"
+      [src]="producto()?.img"
+      width="100%"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+    <div class="card-body">
+      <p class="card-text">
+        {{ producto()?.name }}
+      </p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          @if(qty == 0) {
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary"
+            disabled="disabled"
+            (click)="qtyDecrement()"
+          >
+            -
+          </button>
+          } @else {
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="qtyDecrement()">
+            -
+          </button>
+          }
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="qtyIncrement()">
+            +
+          </button>
+        </div>
+        <small class="text-body-secondary">{{ qty }}</small>
+      </div>
+    </div>
+  </div>
+</div>
