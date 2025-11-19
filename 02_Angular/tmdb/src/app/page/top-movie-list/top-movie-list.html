@@ -1,0 +1,6 @@
+<button type="button" (click)="loadTopRatedMovies()">Refresh Top Rated</button>
+<button type="button" (click)="loadPopularMovies()">Refresh Popular</button>
+<br/>
+@for(movie of movieList; track movie.id) {
+    <p>{{movie.title}}</p>
+}
