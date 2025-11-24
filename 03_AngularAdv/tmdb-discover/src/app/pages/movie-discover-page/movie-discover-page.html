@@ -21,7 +21,7 @@
         </div>
     </nav>
 </header> <!-- Begin page content -->
-<main class="flex-shrink-0">
+<main class="flex-shrink-0 mt-5 pt-3">
     <div class="container">
         <h1 class="mt-5">Movie list</h1>
         @if(movieList.length == 0) {
@@ -31,7 +31,7 @@
             @for(item of movieList; track item.id) {
             <div class="col-md-3 col-12">
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img [src]="getImageUrl(item.poster_path)" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{item.title}}</h5>
                         <p class="card-text">{{getSubStr(item.overview)}}</p>

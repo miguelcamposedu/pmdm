@@ -38,4 +38,8 @@ export class MovieDiscoverPage implements OnInit {
     return text.length > 50? text.substring(0,49)+'...': text;
   }
 
+  getImageUrl(posterPath: string) {
+return `https://image.tmdb.org/t/p/w500${posterPath}`;
+}
+
 }
