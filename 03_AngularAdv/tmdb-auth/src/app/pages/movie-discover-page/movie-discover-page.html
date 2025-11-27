@@ -1,0 +1,52 @@
+<header> <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid"> <a class="navbar-brand" href="#">Popcorn App</a> <button class="navbar-toggler"
+                type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
+                    <li class="nav-item"> <a class="nav-link disabled" aria-disabled="true">Disabled</a> </li>
+                    <li class="nav-item"> <a class="nav-link" (click)="login()">Iniciar</a> </li>
+
+                </ul>
+
+                <select class="form-select me-2" style="width: 200px;" [formControl]="genreMovieSearch">
+                    <option value="">Select a genre</option>
+                    @for (item of genresMovieList; track item.id) {
+                    <option [value]="item.id">{{ item.name }}</option>
+                    }
+                </select>
+                <button class="btn btn-outline-success" type="button" (click)="searchMovies()">Search</button>
+            </div>
+        </div>
+    </nav>
+</header> <!-- Begin page content -->
+<main class="flex-shrink-0 mt-5 pt-3">
+    <div class="container">
+        <h1 class="mt-5">Movie list</h1>
+        @if(movieList.length == 0) {
+        <p>No hay películas o no se selección un género</p>
+        } @else {
+        <div class="row">
+            @for(item of movieList; track item.id) {
+            <div class="col-md-3 col-12">
+                <div class="card" style="width: 18rem;">
+                    <img [src]="getImageUrl(item.poster_path)" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <p class="card-text">{{getSubStr(item.overview)}}</p>
+                        <a href="#" class="btn btn-primary">Go detail</a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</main>
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container"> <span class="text-body-secondary">Place sticky footer content here.</span> </div>
+</footer>
