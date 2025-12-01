@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GenresService } from '../../services/genres-service';
-import { Genre } from '../../models/genre.interface';
+import { Genre } from '../../models/interfaces/genre.interface';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DiscoverService } from '../../services/discover-service';
-import { MovieDiscover } from '../../models/discover-movie-response.interface';
+import { MovieDiscover } from '../../models/interfaces/discover-movie-response.interface';
 import { AuthenticationService } from '../../services/authentication-service';
 
 @Component({

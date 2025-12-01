@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication-service';
+import { CreateSessionDto } from '../../models/dto/create-session.dto';
 
 @Component({
   selector: 'app-create-session',
@@ -13,14 +14,20 @@ export class CreateSession implements OnInit {
 
 constructor(private route: ActivatedRoute, private authenticationService: AuthenticationService) {}
 
+
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      const requestToken = params['approved'];
-      localStorage.setItem('request_token', params['request_token']);
-      console.log('Request Token Approved:', requestToken);
+      const approved = params['approved'];
+      const requestToken = params['request_token'];
+      var sessionDto = new CreateSessionDto(requestToken);
+      localStorage.setItem('request_token', requestToken);
+      // console.log('Request Token Approved:', requestToken);
 
-      if (requestToken === 'true') {
-        
+      if (approved === 'true') {
+        this.authenticationService.createSession(sessionDto).subscribe(resp => {
+          localStorage.setItem('session_id', resp.session_id);
+          // console.log('Session Response:', resp);
+        });
       } else {
         this.loading = false;
       }

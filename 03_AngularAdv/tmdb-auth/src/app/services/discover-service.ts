@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DiscoverMovieResponse } from '../models/discover-movie-response.interface';
+import { DiscoverMovieResponse } from '../models/interfaces/discover-movie-response.interface';
 
 const API_BASE_URL = 'https://api.themoviedb.org/3/discover';
 
