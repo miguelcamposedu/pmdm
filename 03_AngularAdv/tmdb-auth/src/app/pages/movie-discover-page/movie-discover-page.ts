@@ -40,8 +40,8 @@ export class MovieDiscoverPage implements OnInit {
   }
 
   getImageUrl(posterPath: string) {
-return `https://image.tmdb.org/t/p/w500${posterPath}`;
-}
+    return `https://image.tmdb.org/t/p/w500${posterPath}`;
+  }
 
   login() {
     this.authenticationService.createRequestToken().subscribe(resp => {

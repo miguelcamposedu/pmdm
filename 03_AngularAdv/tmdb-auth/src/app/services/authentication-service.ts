@@ -5,6 +5,7 @@ import { CreateRequestTokenResponse } from '../models/interfaces/create-request-
 import { CreateSession } from '../pages/create-session/create-session';
 import { CreateSessionDto } from '../models/dto/create-session.dto';
 import { CreateSessionResponse } from '../models/interfaces/create-session-response.interface';
+import { CreateAccountResponse } from '../models/interfaces/create-account-response.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,11 @@ export class AuthenticationService {
 
   createSession(dto: CreateSessionDto): Observable<CreateSessionResponse> {
     return this.http.post<CreateSessionResponse>('https://api.themoviedb.org/3/authentication/session/new', dto);
+  }
+
+  createAccount(): Observable<CreateAccountResponse> {
+    const session_id = localStorage.getItem('session_id');
+    return this.http.get<CreateAccountResponse>(`https://api.themoviedb.org/3/account?session_id=${session_id}`);
   }
 
 }

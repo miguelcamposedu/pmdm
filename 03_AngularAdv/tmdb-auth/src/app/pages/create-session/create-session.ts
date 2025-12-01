@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication-service';
 import { CreateSessionDto } from '../../models/dto/create-session.dto';
 
@@ -12,7 +12,7 @@ import { CreateSessionDto } from '../../models/dto/create-session.dto';
 export class CreateSession implements OnInit {
   loading = true;
 
-constructor(private route: ActivatedRoute, private authenticationService: AuthenticationService) {}
+constructor(private route: ActivatedRoute, private authenticationService: AuthenticationService, private router: Router) {}
 
 
   ngOnInit(): void {
@@ -26,7 +26,10 @@ constructor(private route: ActivatedRoute, private authenticationService: Authen
       if (approved === 'true') {
         this.authenticationService.createSession(sessionDto).subscribe(resp => {
           localStorage.setItem('session_id', resp.session_id);
-          // console.log('Session Response:', resp);
+          this.authenticationService.createAccount().subscribe(accountResp => {
+            localStorage.setItem('account_id', accountResp.id.toString());
+            this.router.navigate(['/']);
+          });
         });
       } else {
         this.loading = false;
