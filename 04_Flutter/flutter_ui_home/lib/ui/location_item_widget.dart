@@ -11,39 +11,55 @@ class LocationItemWidget extends StatelessWidget {
       width: 200,
       child: Stack(
         children: [
-          Image.network(
-            'https://upload.wikimedia.org/wikipedia/commons/7/79/Giralda_Sevilla.jpg',
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.network(
+              'https://upload.wikimedia.org/wikipedia/commons/7/79/Giralda_Sevilla.jpg',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+              colorBlendMode: BlendMode.darken,
+              color: Colors.black.withValues(alpha: 0.3),
+            ),
           ),
-          Column(
-            children: [
-              Positioned(
-                bottom: 10,
-                child: BadgeCustomWidget(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                BadgeCustomWidget(
                   width: 100,
                   label: 'Sevilla',
                   icon: null,
                   iconColor: Colors.white,
                 ),
-              ),
-              Positioned(
-                bottom: 0,
-                child: Row(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BadgeCustomWidget(
-                      width: 150,
+                      width: 100,
                       label: 'Sevilla',
                       icon: Icons.star,
                       iconColor: Colors.yellow,
                     ),
-                    FloatingActionButton(
-                      onPressed: null,
-                      child: const Icon(Icons.favorite),
+                    SizedBox(
+                      width: 30,
+                      height: 30,
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: null,
+                        child: const Icon(
+                          Icons.favorite,
+                          size: 15,
+                          color: Colors.red,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

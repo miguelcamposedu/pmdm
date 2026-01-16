@@ -12,7 +12,17 @@ class HomePageView extends StatelessWidget {
         onPressed: () {},
         child: const Icon(Icons.search),
       ),
-      body: LocationItemWidget(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Popular', style: TextStyle(fontSize: 24)),
+            SizedBox(height: 16),
+            LocationItemWidget(),
+          ],
+        ),
+      ),
     );
   }
 }
