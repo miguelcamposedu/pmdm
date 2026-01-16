@@ -19,13 +19,15 @@ class BadgeCustomWidget extends StatelessWidget {
     return Container(
       width: width,
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: Colors.grey[500]?.withValues(alpha: 0.4),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (icon != null) Icon(icon, color: iconColor),
-          Text(label),
+          if (icon != null) Icon(icon, color: iconColor, size: 15),
+          icon != null ? SizedBox(width: 5) : SizedBox(width: 0),
+          Text(label, style: TextStyle(color: Colors.white)),
         ],
       ),
     );

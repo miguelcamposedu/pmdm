@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_home/shared/badge_custom_widget.dart';
 
 class LocationItemWidget extends StatelessWidget {
-  const LocationItemWidget({super.key});
+  final String title;
+  final double rating;
+  final String urlImage;
+
+  const LocationItemWidget({
+    super.key,
+    required this.title,
+    required this.rating,
+    required this.urlImage,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +23,7 @@ class LocationItemWidget extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.network(
-              'https://upload.wikimedia.org/wikipedia/commons/7/79/Giralda_Sevilla.jpg',
+              urlImage,
               fit: BoxFit.cover,
               width: double.infinity,
               height: double.infinity,
@@ -30,16 +39,17 @@ class LocationItemWidget extends StatelessWidget {
               children: [
                 BadgeCustomWidget(
                   width: 100,
-                  label: 'Sevilla',
+                  label: title,
                   icon: null,
                   iconColor: Colors.white,
                 ),
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BadgeCustomWidget(
-                      width: 100,
-                      label: 'Sevilla',
+                      width: 70,
+                      label: rating.toString(),
                       icon: Icons.star,
                       iconColor: Colors.yellow,
                     ),
